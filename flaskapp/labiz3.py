@@ -44,13 +44,13 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def draw(filename,cho):
 
+def draw(filename,cho):
  print(filename)
  img= Image.open(filename)
  x, y = img.size
  cho=int(cho)
- 
+ ##gra
  fig = plt.figure(figsize=(6, 4))
  ax = fig.add_subplot()
  data = np.random.randint(0, 255, (100, 100))
@@ -59,27 +59,14 @@ def draw(filename,cho):
  fig.colorbar(b, ax=ax)
  gr_path = "./static/newgr.png"
  sns.displot(data)
-
  plt.savefig(gr_path)
  plt.close()
-
- if cho==1: 
-  a = img.crop((0, 0, int(y * 0.5), x))
-  b = img.crop((int(y * 0.5), 0, x, y))
-  img.paste(b, (0, 0))
-  img.paste(a, (int(x * 0.5), 0))
-  output_filename = filename
-  img.save(output_filename)
- else:
-  img=img.rotate(90)
-  a = img.crop((0, 0, int(y * 0.5), x))
-  b = img.crop((int(y * 0.5), 0, x, y))
-  img.paste(b, (0, 0))
-  img.paste(a, (int(y * 0.5), 0))
-  img=img.rotate(270)
-  output_filename = filename
-  img.save(output_filename)
+ 
+ imag=imag.rotate(cho)
+ output_filename = filename
+ imag.save(output_filename)
  return output_filename,gr_path
+ 
 
 @app.route("/net",methods=['GET', 'POST'])
 def net():
