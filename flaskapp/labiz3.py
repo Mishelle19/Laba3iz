@@ -26,7 +26,7 @@ bootstrap = Bootstrap(app)
 
 class NetForm(FlaskForm):
 
- cho = StringField('1-изменить по вертикали,2-по горизонтали', validators = [DataRequired()])
+ cho = StringField('Введите угол поворота', validators = [DataRequired()])
 
  upload = FileField('Load image', validators=[
  FileRequired(),
