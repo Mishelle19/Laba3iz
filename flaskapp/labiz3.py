@@ -62,7 +62,7 @@ def draw(filename,cho):
  plt.savefig(gr_path)
  plt.close()
  
- imag=imag.rotate(cho)
+ imag=imag.rotate(90)
  output_filename = filename
  imag.save(output_filename)
  return output_filename,gr_path
